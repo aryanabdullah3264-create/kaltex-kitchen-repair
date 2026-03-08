@@ -1108,6 +1108,216 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ===== SCHEDULE REPAIR FORM SECTION ===== */
+        .schedule-form-section {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            padding: 100px 0;
+        }
+
+        .schedule-form-section .section-title h2 {
+            color: white;
+        }
+
+        .schedule-form-section .section-title p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .form-wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            padding: 55px 60px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a252f;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 14px 18px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #2c3e50;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 4px rgba(231,76,60,0.1);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: #e74c3c;
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(231,76,60,0.35);
+        }
+
+        .btn-submit:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(231,76,60,0.45);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 14px;
+        }
+
+        /* ===== THANK YOU POPUP ===== */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-box {
+            background: white;
+            border-radius: 25px;
+            padding: 55px 50px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.75); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .popup-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 42px;
+            box-shadow: 0 10px 30px rgba(231,76,60,0.35);
+        }
+
+        .popup-box h3 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #1a252f;
+            margin-bottom: 15px;
+        }
+
+        .popup-box p {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .popup-box p strong {
+            color: #e74c3c;
+        }
+
+        .popup-close-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 14px 45px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .popup-close-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .popup-x {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #aaa;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .popup-x:hover { color: #555; }
+
+        @media (max-width: 768px) {
+            .form-wrapper { padding: 35px 25px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: 1; }
+        }
     </style>
 </head>
 <body>
@@ -1116,7 +1326,7 @@
         <div class="container">
             <div class="top-bar-content">
                 <div class="top-bar-left">
-                    <span>Email: service@kaltexrepair.ca</span>
+                    <span>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2a1b7a0a4bbb1b792b9b3bea6b7aaa0b7a2b3bba0fcb1b3">[email&#160;protected]</a></span>
                     <span>Hours: Mon-Sat 8AM-8PM | Sun 10AM-6PM</span>
                 </div>
                 <div class="top-bar-right">
@@ -1144,7 +1354,7 @@
                 </nav>
                 <div class="header-cta">
                     <span class="phone-header">(519) 555-0123</span>
-                    <a href="#contact" class="btn-cta">GET FREE QUOTE</a>
+                    <a href="#schedule" class="btn-cta">GET FREE QUOTE</a>
                 </div>
             </div>
         </div>
@@ -1173,7 +1383,7 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">GET FREE QUOTE</a>
+                    <a href="#schedule" class="btn-primary">GET FREE QUOTE</a>
                     <a href="tel:5195550123" class="btn-secondary">CALL NOW</a>
                 </div>
 
@@ -1772,6 +1982,76 @@
         </div>
     </section>
 
+    <!-- Schedule Repair Form -->
+    <section class="schedule-form-section" id="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>Schedule Your Repair & Get a Free Quote</h2>
+                <p>Fill out the form below and our team will contact you shortly to confirm your appointment</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="repairForm" action="https://formspree.io/f/xojkvzdb" method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(519) 000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="appliance">Appliance Type *</label>
+                            <select id="appliance" name="appliance" required>
+                                <option value="" disabled selected>Select appliance...</option>
+                                <option>Stove / Range</option>
+                                <option>Oven</option>
+                                <option>Refrigerator</option>
+                                <option>Dishwasher</option>
+                                <option>Washing Machine</option>
+                                <option>Dryer</option>
+                                <option>Microwave</option>
+                                <option>Commercial Appliance</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date</label>
+                            <input type="date" id="preferredDate" name="preferredDate">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Describe the Problem *</label>
+                            <textarea id="message" name="message" placeholder="Please briefly describe the issue with your appliance..." required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">🔧 Submit Request & Get Free Quote</button>
+                    <p class="form-note">🔒 Your information is safe. We never share your details with third parties.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Popup -->
+    <div class="popup-overlay" id="thankYouPopup">
+        <div class="popup-box">
+            <button class="popup-x" onclick="closePopup()" aria-label="Close">✕</button>
+            <div class="popup-icon">✅</div>
+            <h3>Thank You!</h3>
+            <p>Thanks for submitting your request.<br><strong>Our team will contact you shortly!</strong></p>
+            <p style="font-size:15px; margin-bottom: 28px;">We typically respond within <strong>1–2 hours</strong> during business hours. For urgent repairs, feel free to call us directly.</p>
+            <button class="popup-close-btn" onclick="closePopup()">Got It!</button>
+        </div>
+    </div>
+
     <!-- Final CTA -->
     <section class="final-cta" id="contact">
         <div class="container">
@@ -1782,7 +2062,7 @@
 
             <div class="cta-buttons-final">
                 <a href="tel:5195550123" class="btn-secondary" style="font-size: 20px; padding: 22px 55px; font-weight: 900;">CALL NOW</a>
-                <a href="#home" class="btn-secondary" style="font-size: 20px; padding: 22px 55px; font-weight: 900;">SCHEDULE ONLINE</a>
+                <a href="#schedule" class="btn-secondary" style="font-size: 20px; padding: 22px 55px; font-weight: 900;">SCHEDULE ONLINE</a>
             </div>
 
             <div class="guarantee-section">
@@ -1856,7 +2136,7 @@
                     <ul>
                         <li>Address: 123 Main Street<br>Guelph, ON N1H 1A1<br>Canada</li>
                         <li>Phone: (519) 555-0123</li>
-                        <li>Email: service@kaltexrepair.ca</li>
+                        <li>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c0f190e0a151f193c171d100819040e190c1d150e521f1d">[email&#160;protected]</a></li>
                         <li>Business Hours:<br>Monday-Saturday: 8:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</li>
                         <li style="margin-top: 20px; color: #e74c3c; font-weight: bold; font-size: 16px;">Emergency Service Available 24/7</li>
                     </ul>
@@ -1864,9 +2144,58 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Kaltex Kitchen Repair. All Rights Reserved. | Serving Guelph & Wellington County Since 2014</p>
+                <p>&copy; 2024 Kaltex Kitchen Repair. All rights reserved. | Professional Appliance Repair in Guelph, Ontario</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+                q.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // Form submission → show Thank You popup
+        const repairForm = document.getElementById('repairForm');
+        repairForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = repairForm.querySelector('.btn-submit');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const data = new FormData(repairForm);
+                const response = await fetch(repairForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    repairForm.reset();
+                    document.getElementById('thankYouPopup').classList.add('active');
+                } else {
+                    alert('Something went wrong. Please try again or call us directly.');
+                }
+            } catch (err) {
+                alert('Network error. Please try again or call us at (519) 555-0123.');
+            } finally {
+                btn.textContent = '🔧 Submit Request & Get Free Quote';
+                btn.disabled = false;
+            }
+        });
+
+        function closePopup() {
+            document.getElementById('thankYouPopup').classList.remove('active');
+        }
+
+        // Close popup when clicking backdrop
+        document.getElementById('thankYouPopup').addEventListener('click', function(e) {
+            if (e.target === this) closePopup();
+        });
+    </script>
 </body>
 </html>
